@@ -1,0 +1,17 @@
+<div class="footer">
+
+  <md-toolbar layout="row" layout-align="center center">
+    <section flex layout="row" layout-align="center center">
+      <ul class="footer__items" id="mobile-demo">
+        <li class=""><a href="#about" ng-if="!vm.isLogin()" data-section="#about" class="menu-smooth-scroll">About</a>
+        </li>
+        <li class=""><a href="#" ng-if="!vm.isLogin()" ng-click="vm.login('facebook')" data-section="#contact"
+                        class="menu-smooth-scroll">© 2016 Next Evolution LLC</a>
+        </li>
+      </ul>
+      <!--<md-button href="#" ng-if="!vm.isUserLogin()" class="">About</md-button>-->
+      <!--<div class="footer__item">© 2016 Next Evolution LLC</div>-->
+    </section>
+  </md-toolbar>
+
+</div>

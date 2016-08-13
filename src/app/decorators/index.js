@@ -1,0 +1,1 @@
+// export { testDirective } from './testDirective.config'

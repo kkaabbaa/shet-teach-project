@@ -1,0 +1,33 @@
+{
+  "name": "mel-ui",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular-animate": "~1.5.3",
+    "angular-cookies": "~1.5.3",
+    "angular-touch": "~1.5.3",
+    "angular-sanitize": "~1.5.3",
+    "angular-messages": "~1.5.3",
+    "angular-aria": "~1.5.3",
+    "jquery": "~2.1.4",
+    "angular-resource": "~1.5.3",
+    "angular-ui-router": "~0.2.15",
+    "angular-material": "git+https://github.com/angular/bower-material.git#master",
+    "material-design-iconfont": "~0.0.2",
+    "angular-toastr": "~1.5.0",
+    "moment": "~2.10.6",
+    "animate.css": "~3.4.0",
+    "angular": "~1.5.3",
+    "angular-local-storage": "^0.2.7",
+    "lodash": "^4.13.1",
+    "satellizer": "0.13.4",
+    "Ionicons": "ionicons#^2.0.1",
+    "angular-material-data-table": "^0.10.9"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.3"
+  },
+  "resolutions": {
+    "jquery": "~2.1.4",
+    "angular": "~1.5.3"
+  }
+}

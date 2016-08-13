@@ -1,0 +1,38 @@
+.navbar {
+  padding: 0 30px;
+
+  .logo {
+    height: 50px;
+    width: 50px;
+  }
+
+  ul li {
+    float: left;
+    padding: 0px;
+    @include font-size(13px);
+    font-weight: bold;
+    list-style-type: none;
+  }
+
+  .side-nav {
+    li {
+      margin-left: 30px;
+    }
+
+    a {
+      color: #fff;
+      padding: 17px 0;
+      border-bottom: 6px solid transparent;
+      text-transform: uppercase;
+      text-decoration: blink;
+      background-color: transparent;
+      line-height: 24px;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    a:hover, a:focus {
+      border-bottom-color: #fff;
+    }
+  }
+}

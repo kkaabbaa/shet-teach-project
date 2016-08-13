@@ -1,0 +1,39 @@
+<md-toolbar layout="row" layout-align="space-between center" class="navbar">
+  <section flex layout="row" layout-align="start center">
+    <a ng-href="/">
+      <img class="logo" src="../../../assets/images/fs-maxcdn.png" alt="">
+    </a>
+    <ul class="inline-menu side-nav" id="mobile-demo">
+      <li class=""><a ui-sref="sales" ng-if="vm.isLogin()" data-section="#about" class="menu-smooth-scroll"><i
+          class="fa fa-user fa-fw"></i>Sales list</a>
+      </li>
+    </ul>
+  </section>
+  <section flex layout="row" layout-align="end center">
+    <ul class="inline-menu side-nav" id="mobile-demo">
+
+      <!-- Mini Profile // only visible in Tab and Mobile -->
+      <!--<li class="mobile-profile">-->
+      <!--<div class="profile-inner">-->
+      <!--<div class="pp-container">-->
+      <!--<img src="images/person.jpg" alt="">-->
+      <!--</div>-->
+      <!--<h3>John Doe</h3>-->
+      <!--<h5>Creative UI/UX Expert</h5>-->
+      <!--</div>-->
+      <!--</li>&lt;!&ndash; mini profile end&ndash;&gt;-->
+
+      <li class=""><a href="#about" ng-if="!vm.isLogin()" data-section="#about" class="menu-smooth-scroll"><i
+          class="fa fa-user fa-fw"></i>About</a>
+      </li>
+      <li class=""><a href="#" ng-if="!vm.isLogin()" ng-click="vm.login('facebook')" data-section="#contact"
+                      class="menu-smooth-scroll"><i class="fa fa-paper-plane fa-fw"></i>enter with facebook</a>
+      </li>
+      <li class=""><a href="#" ng-if="vm.isLogin()" ng-click="vm.logout()" data-section="#contact"
+                      class="menu-smooth-scroll"><i class="fa fa-paper-plane fa-fw"></i>Logout</a>
+      </li>
+    </ul>
+
+  </section>
+
+</md-toolbar>

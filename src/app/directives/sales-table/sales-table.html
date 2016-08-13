@@ -1,0 +1,106 @@
+<div class="sales-table">
+  <md-content layout="column" flex="" class="layout-column flex">
+
+    <md-card>
+
+      <md-toolbar class="md-table-toolbar md-default" ng-hide="vm.options.rowSelection && vm.selected.length">
+        <div class="md-toolbar-tools">
+          <span>Sales</span>
+          <div flex></div>
+          <md-button class="md-icon-button" ng-click="vm.loadSales()">
+            <md-icon>refresh</md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+
+      <md-toolbar class="md-table-toolbar alternate" ng-show="vm.options.rowSelection && vm.selected.length">
+        <div class="md-toolbar-tools">
+          <span>{{vm.selected.length}} {{vm.selected.length > 1 ? 'items' : 'item'}} selected</span>
+        </div>
+      </md-toolbar>
+
+      <md-table-container>
+        <table md-table md-row-select="vm.options.rowSelection" multiple="{{vm.options.multiSelect}}"
+               ng-model="vm.selected"
+               md-progress="vm.promise">
+          <thead ng-if="!options.decapitate" md-head md-order="vm.query.order" md-on-reorder="logOrder">
+          <tr md-row>
+            <th md-column></th>
+            <th md-column md-order-by="customer.name"><span>Customer</span></th>
+            <th md-column md-order-by="date" hide-xs><span>Date</span></th>
+            <th md-column md-order-by="" hide-xs><span>Product</span></th>
+            <th md-column md-order-by="product.album" hide-xs show-gt-sm><span>Album</span></th>
+            <th md-column md-order-by="product.description" hide-xs show-gt-md><span>Description</span></th>
+            <th md-column md-order-by="sale_comment.text" hide-xs show-gt-md>
+              <md-icon>comments</md-icon>
+              <span>Comments</span>
+            </th>
+          </tr>
+          </thead>
+          <tbody md-body>
+          <tr md-row md-select="sale" md-on-select="logItem" md-auto-select="vm.options.autoSelect"
+              ng-disabled="dessert.calories.value > 400"
+              ng-repeat="sale in vm.sales | filter: filter.search | orderBy: vm.query.order | limitTo: vm.query.limit : (vm.query.page -1) * vm.query.limit">
+            <td md-cell>
+              <a href="https://www.facebook.com/{{sale.customer.fb_id}}">
+                <div class="center-cropped sales-table__image sales-table__avatar"
+                     style="background-image: url('../../../assets/images/{{sale.customer.image}}');">
+                </div>
+              </a>
+            </td>
+            <td md-cell>
+              <a href="https://www.facebook.com/{{sale.customer.fb_id}}">
+                {{sale.customer.name}}
+              </a>
+            </td>
+            <td md-cell hide-xs>{{sale.date | date:'medium'}}</td>
+            <td md-cell hide-xs class="sales-table__block-images">
+              <div class="center">
+                <i class="ion-social-facebook go-to-facebook"></i>
+              </div>
+              <div class="sales-table__images">
+
+                <a ng-href="https://www.facebook.com/photo.php?fbid={{sale.product.fb_id}}">
+
+                  <div class="sales-table__image-product center-cropped "
+                       style="background-image: url('{{sale.product.picture_url}}');">
+
+                  </div>
+                  <!--<img class="sales-table__images center-cropped" src="{{sale.product.picture_url}}" alt="">-->
+                </a>
+              </div>
+
+            </td>
+            <td md-cell hide-xs show-gt-sm>{{sale.product.album}}</td>
+            <td md-cell hide-xs show-gt-md>{{sale.product.description}}</td>
+            <td md-cell hide-xs show-gt-md>
+              <a ng-href="https://www.facebook.com/{{sale.sale_comment.fb_id}}">{{sale.sale_comment.text}}</a>
+            </td>
+            <!--<td md-cell>-->
+            <!--<md-select ng-model="dessert.type" placeholder="Other">-->
+            <!--<md-option ng-value="type" ng-repeat="type in getTypes()">{{type}}</md-option>-->
+            <!--</md-select>-->
+            <!--</td>-->
+            <!--<td md-cell>{{dessert.calories.value}}</td>-->
+            <!--<td md-cell>{{dessert.fat.value | number: 2}}</td>-->
+            <!--<td md-cell>{{dessert.carbs.value}}</td>-->
+            <!--<td md-cell>{{dessert.protein.value | number: 2}}</td>-->
+            <!--<td md-cell hide-gt-xs show-gt-md>{{dessert.sodium.value}}</td>-->
+            <!--<td md-cell hide-gt-xs show-gt-lg>{{dessert.calcium.value}}%</td>-->
+            <!--<td md-cell hide-gt-xs show-gt-lg>{{dessert.iron.value}}%</td>-->
+            <!--<td md-cell ng-click="editComment($event, dessert)" ng-class="{'md-placeholder': !dessert.comment}">-->
+            <!--{{dessert.comment || 'Add a comment'}}-->
+            <!--</td>-->
+          </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+
+      <md-table-pagination md-limit="vm.query.limit" md-limit-options="limitOptions" md-page="vm.query.page"
+                           md-total="{{vm.sales.length}}" md-page-select="options.pageSelect"
+                           md-boundary-links="options.boundaryLinks"
+                           md-on-paginate="logPagination"></md-table-pagination>
+    </md-card>
+
+  </md-content>
+</div>
